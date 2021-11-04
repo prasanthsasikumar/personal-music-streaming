@@ -1,41 +1,39 @@
 {
-  "name": "spotif",
-  "version": "0.1.0",
+  "name": "psk-blog",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dev": "set NODE_ENV=development && nuxt && yarn functions:serve",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "set NODE_ENV=production && nuxt generate && yarn functions:build",
+    "functions:serve": "netlify-lambda serve lambda",
+    "functions:build": "netlify-lambda build lambda"
   },
   "dependencies": {
-    "core-js": "^3.4.4",
-    "vue": "^2.6.10"
+    "@nuxt/content": "^1.14.0",
+    "@nuxt/image": "^0.6.0",
+    "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/feed": "^2.0.0",
+    "@sendgrid/mail": "^7.4.7",
+    "@tailwindcss/typography": "^0.4.1",
+    "core-js": "^3.15.1",
+    "fs": "0.0.1-security",
+    "mixpanel-browser": "^2.41.0",
+    "net": "^1.0.2",
+    "netlify-lambda": "^2.0.14",
+    "nuxt": "^2.15.7",
+    "tls": "0.0.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.1.0",
-    "@vue/cli-plugin-eslint": "^4.1.0",
-    "@vue/cli-service": "^4.1.0",
-    "babel-eslint": "^10.0.3",
-    "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "vue-template-compiler": "^2.6.10"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ]
+    "@nuxtjs/color-mode": "^2.1.1",
+    "@nuxtjs/style-resources": "^1.2.1",
+    "@nuxtjs/tailwindcss": "^4.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "fibers": "^5.0.0",
+    "node-sass": "^6.0.1",
+    "postcss": "^8.3.5",
+    "prettier": "^2.3.2",
+    "sass-loader": "^10.2.0"
+  }
 }

@@ -1,0 +1,28 @@
+
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+  
+local_backend: true #npx netlify-cms-proxy-server
+media_folder: "static"
+public_folder: "/"
+site_url: https://prasanthsasikumar.com
+
+collections:
+  - name: 'post'
+    label: 'Post'
+    folder: 'content'
+    format: 'frontmatter'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: "Draft", name: "draft", widget: "boolean", default: true}
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }    
+      - { label: 'Abstract', name: 'abstract', widget: 'string' }
+      - { label: 'Length', name: 'length', widget: 'number' }
+      - { label: 'Github', name: 'github', widget: 'string', required: false }      
+      - { label: 'Series', name: 'series', widget: 'string', required: false }  
+      - { label: 'Tags', name: 'tags', widget: 'list' }
+      - { label: 'Cover Image', name: 'image', widget: 'image', default: "5 min read" }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
