@@ -31,8 +31,8 @@
                   <div class="w-full p-8">
                     <div class="flex justify-between">
                       <div>
-                        <h3 class="text-2xl text-grey-darkest font-medium">A Sky Full of Stars</h3>
-                        <p class="text-sm text-grey mt-1">Ghost Stories</p>
+                        <h3 class="text-2xl text-grey-darkest font-medium">{{current.title}}</h3>
+                        <p class="text-sm text-grey mt-1">{{current.artist}}</p>
                       </div>
                       <button class="text-red-lighter">
                         <svg class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 3.22l-.61-.6a5.5 5.5 0 0 0-7.78 7.77L10 18.78l8.39-8.4a5.5 5.5 0 0 0-7.78-7.77l-.61.61z"/></svg>
@@ -113,13 +113,13 @@
                 <div class="p-4 text-gray-300 dark:text-gray-500"> Explore my projects <span class="text-white dark:text-gray-700"> on GitHub.</span></div>
             </a>
                       
-            <h3 class="mb-4 text-xs font-bold tracking-wide text-gray-400 uppercase dark:text-gray-600">Checkout my Tags</h3>
+            <h3 class="mb-4 text-xs font-bold tracking-wide text-gray-400 uppercase dark:text-gray-600">Albums</h3>
             <div class="flex flex-wrap text-xs font-bold uppercase mb-4 md:mb-8">
-              <NuxtLink :to="`/tag/MagicMirror`" :href="`tag/MagicMirror`" class="block px-2 py-1 mb-2 mr-2 text-purple-400 transition-colors duration-100 bg-purple-500 rounded-sm whitespace-nowrap hover:bg-pink-500 hover:text-pink-300">
-                <span class="-mr-px">#</span> <span class="text-white">MagicMirror</span>
+              <NuxtLink :to="`/`" :href="`/`" class="block px-2 py-1 mb-2 mr-2 text-purple-400 transition-colors duration-100 bg-purple-500 rounded-sm whitespace-nowrap hover:bg-pink-500 hover:text-pink-300">
+                <span class="-mr-px">#</span> <span class="text-white">Iranian</span>
               </NuxtLink>
-              <NuxtLink :to="`/tag/AugmentedReality`" :href="`tag/AugmentedReality`" class="block px-2 py-1 mb-2 mr-2 text-purple-400 transition-colors duration-100 bg-purple-500 rounded-sm whitespace-nowrap hover:bg-pink-500 hover:text-pink-300">
-                <span class="-mr-px">#</span> <span class="text-white">Augmented Reality</span>
+              <NuxtLink :to="`/`" :href="`/`" class="block px-2 py-1 mb-2 mr-2 text-purple-400 transition-colors duration-100 bg-purple-500 rounded-sm whitespace-nowrap hover:bg-pink-500 hover:text-pink-300">
+                <span class="-mr-px">#</span> <span class="text-white">PS</span>
               </NuxtLink>
             </div>        
           </div>
@@ -145,7 +145,11 @@
 
 <script>
 import mixpanel from 'mixpanel-browser';
+import songs from '~/static/songs.json';
 export default {
+  asyncData ({ params }) {
+    return { songs }
+  },
   head() {
     return {
       title: 'My Music',
@@ -182,18 +186,6 @@ export default {
       current: {},
       index: 0,
       isPlaying: false,
-      songs: [
-        {
-          title: 'Grateful',
-          artist: 'Neffex',
-          src: 'neffex-grateful.mp3'
-        },
-        {
-          title: 'Invincible',
-          artist: 'Deaf Kev',
-          src: 'deaf-kev-invincible.mp3'
-        }
-      ],
     }
   },
   methods: {

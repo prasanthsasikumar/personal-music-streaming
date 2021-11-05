@@ -19,6 +19,7 @@
     "fs": "0.0.1-security",
     "mixpanel-browser": "^2.41.0",
     "net": "^1.0.2",
+    "netlify-cli": "^6.14.16",
     "netlify-lambda": "^2.0.14",
     "nuxt": "^2.15.7",
     "tls": "0.0.1"
