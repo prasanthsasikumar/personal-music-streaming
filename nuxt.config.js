@@ -45,7 +45,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
-    '@nuxtjs/feed'
+    '@nuxtjs/feed',
+    '@nuxtjs/axios'
   ],
 
   feed: [

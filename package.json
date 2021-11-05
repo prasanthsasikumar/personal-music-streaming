@@ -11,10 +11,12 @@
   "dependencies": {
     "@nuxt/content": "^1.14.0",
     "@nuxt/image": "^0.6.0",
+    "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/feed": "^2.0.0",
     "@sendgrid/mail": "^7.4.7",
     "@tailwindcss/typography": "^0.4.1",
+    "axios": "^0.24.0",
     "core-js": "^3.15.1",
     "fs": "0.0.1-security",
     "mixpanel-browser": "^2.41.0",
