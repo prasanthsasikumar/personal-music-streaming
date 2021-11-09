@@ -11,7 +11,7 @@
 import axios from "axios";
 export default {
   async asyncData ({ params }) {
-    const message = await axios.get('.netlify/functions/hello-world/hello-world')
+    const message = await axios.get('https://prasanthsasikumar.com/.netlify/functions/hello-world/hello-world')
     console.log(message)
     return { message }
   },
