@@ -6,7 +6,7 @@ const handler = async (event) => {
   const myToken = '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';
   const filesArray = await listContent.viaTreesApi({
     user: 'prasanthsasikumar',
-    repository: 'personal-music-streaming',
+    repository: 'https://github.com/prasanthsasikumar/personal-music-streaming',
     directory: 'static',
     token: myToken
   });
