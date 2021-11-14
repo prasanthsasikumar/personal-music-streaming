@@ -5,7 +5,7 @@ const handler = async (event) => {
   const listContent = require('list-github-dir-content');
   const myToken = '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';
   const filesArray = await listContent.viaTreesApi({
-    user: 'prasanths99@yahoo.co.in',
+    user: 'prasanthsasikumar',
     repository: 'personal-music-streaming',
     directory: 'static',
     token: myToken
