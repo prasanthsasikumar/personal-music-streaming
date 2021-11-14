@@ -10167,6 +10167,13 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
+list-github-dir-content@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/list-github-dir-content/-/list-github-dir-content-3.0.0.tgz#c92cc9a92412a25e543e4c31433e699d360af7e7"
+  integrity sha512-bmyjpmEE5DggWv9zdTXj13AP9kbYkeZH1suo3Gx3nxCq1B84YwcYuWH/arkKisRomn+2bfGF5AUE2ScJ/Xeqeg==
+  dependencies:
+    node-fetch "^2.6.0"
+
 listhen@^0.2.4:
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/listhen/-/listhen-0.2.4.tgz#197372635538555d55b9da86a4829b6a0b8c726b"

@@ -127,7 +127,7 @@
 
          <article class="min-w-0 prose prose-lg prose-pink max-w-none dark:prose-dark dark:text-white">
           <section class="playlist px-8 py-8">
-            <h3 class="text-black text-lg text-center">Playlist</h3>
+            <h3 class="text-black dark:text-white text-lg text-center">Playlist</h3>
             <button v-for="song in songs" :key="song.src" @click="play(song)" class="block w-full cursor-pointer" :class="(song.src == current.src) ? 'text-white bg-gradient-to-br from-gray-900 via-purple-600 to-pink-400' : 'song'">
               {{ song.title }} - {{ song.artist }}
             </button>
@@ -145,9 +145,26 @@
 
 <script>
 import mixpanel from 'mixpanel-browser';
-import songs from '~/static/songs.json';
+import axios from "axios";
 export default {
-  asyncData ({ params }) {
+  async asyncData () {
+    const message = await axios.get('https://api.github.com/repos/prasanthsasikumar/personal-music-streaming/git/trees/master?recursive=1')
+    var songs = [];
+    message.data.tree.forEach(element => {
+      if(element.path.startsWith('static/songs/')){
+        var songName = element.path.slice(element.path.lastIndexOf('/') + 1)
+        var song = {};
+        song.title = songName.slice(songName.lastIndexOf('-')+1);
+        song.title = song.title.slice(0,song.title.lastIndexOf('.'));//To remove file extension
+        song.title = song.title.charAt(0).toUpperCase() + song.title.slice(1);//Captitalize first letter
+        song.artist = songName.slice(0, songName.lastIndexOf('-')+1);
+        song.artist = song.artist.replace(/-/g,' ');
+        song.artist = song.artist.charAt(0).toUpperCase() + song.artist.slice(1);//Captitalize first letter
+        song.src = "songs/"+ songName;
+        console.log(song)
+        songs.push(song);
+      }
+    });
     return { songs }
   },
   head() {
@@ -192,7 +209,6 @@ export default {
     play (song) {
       if (typeof song.src != "undefined") {
         this.current = song;
-
         this.$refs.audioPlayer.src = this.current.src;
       }
 

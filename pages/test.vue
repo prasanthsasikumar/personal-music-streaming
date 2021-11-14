@@ -11,9 +11,19 @@
 import axios from "axios";
 export default {
   async asyncData ({ params }) {
-    const message = await axios.get('https://github.com/prasanthsasikumar/personal-music-streaming/tree/master/static/songs')
-    console.log(message.data.songs)
-    return {  }
+    const message = await axios.get('https://api.github.com/repos/prasanthsasikumar/personal-music-streaming/git/trees/master?recursive=1')
+    var songs = [];
+    message.data.tree.forEach(element => {
+      if(element.path.startsWith('static/songs/')){
+        var songName = element.path.slice(element.path.lastIndexOf('/') + 1)
+        var song = {};
+        song.title = songName.slice(songName.lastIndexOf('-')+1)
+        song.artist = songName.slice(0, songName.lastIndexOf('-')+1)
+        song.src = "songs/"+ songName;
+        songs.push(song);
+      }
+    });
+    return { songs }
   },
   data() {
     return {
