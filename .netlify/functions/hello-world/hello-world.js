@@ -4,9 +4,9 @@ const { Root } = require('postcss');
 const handler = async (event) => {
   const listContent = require('list-github-dir-content');
   const myToken = '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';
-  const filesArray = await listContent.viaTreesApi({
+  const filesArray = await listContent.viaContentsApi({
     user: 'prasanthsasikumar',
-    repository: 'https://github.com/prasanthsasikumar/personal-music-streaming',
+    repository: 'personal-music-streaming',
     directory: 'static',
     token: myToken
   });
