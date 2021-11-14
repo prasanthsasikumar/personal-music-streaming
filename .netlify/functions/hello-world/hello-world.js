@@ -8,7 +8,7 @@ const handler = async (event) => {
   try {
     const subject = event.queryStringParameters.name || 'World'
     console.log(ROOT);
-    const filenames = fs.readdirSync(path.resolve(ROOT,'static/songs'));
+    const filenames = fs.readdirSync(path.resolve(ROOT));
     return {
       statusCode: 200,
       body: JSON.stringify({ songs: filenames}),
