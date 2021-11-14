@@ -2,13 +2,17 @@ const { Root } = require('postcss');
 
 // Docs on event and context https://www.netlify.com/docs/functions/#the-handler-method
 const handler = async (event) => {
-  const fs = require('fs');
-  const path = require('path');
-  const ROOT = path.join( __dirname, '../../../../' );
+  const listContent = require('list-github-dir-content');
+  const myToken = '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';
+  const filesArray = await listContent.viaTreesApi({
+    user: 'prasanths99@yahoo.co.in',
+    repository: 'personal-music-streaming',
+    directory: 'static',
+    token: myToken
+  });
   try {
     const subject = event.queryStringParameters.name || 'World'
-    console.log(ROOT);
-    const filenames = fs.readdirSync(path.resolve(ROOT));
+    console.log(filesArray);
     return {
       statusCode: 200,
       body: JSON.stringify({ songs: filenames}),

@@ -19,6 +19,7 @@
     "axios": "^0.24.0",
     "core-js": "^3.15.1",
     "fs": "0.0.1-security",
+    "list-github-dir-content": "^3.0.0",
     "mixpanel-browser": "^2.41.0",
     "net": "^1.0.2",
     "netlify-cli": "^6.14.16",
