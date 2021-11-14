@@ -11,7 +11,7 @@
 import axios from "axios";
 export default {
   async asyncData ({ params }) {
-    const message = await axios.get('https://prasanthsasikumar.com/api/hello-world/')
+    const message = await axios.get('https://spotify.prasanthsasikumar.com/api/hello-world/')
     console.log(message.data.songs)
     return {  }
   },
