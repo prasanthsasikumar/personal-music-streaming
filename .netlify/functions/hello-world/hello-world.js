@@ -7,7 +7,7 @@ const handler = async (event) => {
     user: 'prasanthsasikumar',
     repository: 'personal-music-streaming',
     directory: 'static',
-    token: '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'
+    token: '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'
   });
   try {
     const subject = event.queryStringParameters.name || 'World'
