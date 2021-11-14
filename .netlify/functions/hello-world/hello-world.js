@@ -3,7 +3,7 @@ const { Root } = require('postcss');
 // Docs on event and context https://www.netlify.com/docs/functions/#the-handler-method
 const handler = async (event) => {
   const listContent = require('list-github-dir-content');
-  const myToken = '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';
+  const myToken = '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';
   const filesArray = await listContent.viaContentsApi({
     user: 'prasanthsasikumar',
     repository: 'personal-music-streaming',
