@@ -110,6 +110,11 @@ export default {
   env: {
     baseUrl: process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://prasanthsasikumar.com',
     functions: process.env.NODE_ENV === 'production' ? `https://prasanthsasikumar.com/.netlify/functions` : 'http://localhost:9000',
-  }
+  },
+  axios: {
+    baseURL: process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'development'
+      ? 'http://localhost:8888'
+      : 'https://nifty-colden-4fc596.netlify.app'
+  },
   
 }
