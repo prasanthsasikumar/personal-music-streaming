@@ -2,7 +2,7 @@
 const handler = async (event) => {
   const fs = require('fs');
   const path = require('path');
-  const ROOT = path.join( __dirname, '../../' );
+  const ROOT = path.join( __dirname, '../../../' );
   try {
     const subject = event.queryStringParameters.name || 'World'
     const filenames = fs.readdirSync(path.resolve(ROOT,'static/songs'));
