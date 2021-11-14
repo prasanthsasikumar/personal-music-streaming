@@ -6,7 +6,7 @@ const handler = async (event) => {
   const filesArray = await listContent.viaTreesApi({
     user: 'prasanthsasikumar',
     repository: 'personal-music-streaming',
-    directory: 'static',
+    directory: 'static/songs',
     token: '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'
   });
   try {
