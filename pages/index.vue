@@ -151,7 +151,7 @@ export default {
     const message = await axios.get('https://api.github.com/repos/prasanthsasikumar/personal-music-streaming/git/trees/master?recursive=1')
     var songs = [];
     message.data.tree.forEach(element => {
-      if(element.path.startsWith('static/songs/')){
+      if(element.path.startsWith('static/songs/') && element.path.includes('.mp3')){
         var songName = element.path.slice(element.path.lastIndexOf('/') + 1)
         var song = {};
         song.title = songName.slice(songName.lastIndexOf('-')+1);
@@ -160,7 +160,7 @@ export default {
         song.artist = songName.slice(0, songName.lastIndexOf('-')+1);
         song.artist = song.artist.replace(/-/g,' ');
         song.artist = song.artist.charAt(0).toUpperCase() + song.artist.slice(1);//Captitalize first letter
-        song.src = "songs/"+ songName;
+        song.src = element.path.slice(element.path.indexOf('/',0) + 1)
         console.log(song)
         songs.push(song);
       }
