@@ -11,7 +11,7 @@
 import axios from "axios";
 export default {
   async asyncData ({ params }) {
-    const message = await axios.get('http://localhost:8888/api/hello-world/')
+    const message = await axios.get('https://github.com/prasanthsasikumar/personal-music-streaming/tree/master/static/songs')
     console.log(message.data.songs)
     return {  }
   },
