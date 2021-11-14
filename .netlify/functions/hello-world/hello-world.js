@@ -1,3 +1,5 @@
+const { Root } = require('postcss');
+
 // Docs on event and context https://www.netlify.com/docs/functions/#the-handler-method
 const handler = async (event) => {
   const fs = require('fs');
@@ -5,6 +7,7 @@ const handler = async (event) => {
   const ROOT = path.join( __dirname, '../../../' );
   try {
     const subject = event.queryStringParameters.name || 'World'
+    console.log(ROOT);
     const filenames = fs.readdirSync(path.resolve(ROOT,'static/songs'));
     return {
       statusCode: 200,
